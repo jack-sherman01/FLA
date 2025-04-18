@@ -13,23 +13,44 @@ Motivation: Fine-tuning by safe RL with force and torque perception to advance t
 
 ## TODO
 - [ ] Deploy common VLA models locally
-    - [x] OpenVLA
+    - [x] [OpenVLA](#openvla)
     - [ ] RDT
     - [ ] Others...
 - [ ] Evaluate performance of each VLA model as baselines
     - [x] OpenVLA
+    - [ ] RDT
 - [ ] Add F/T sensor integration for each setup
 - [ ] Create 5-10 contact-rich task environments
-
+- [ ] Design and implement FLA environment
+    - [ ] Integration with force/torque perception
+    - [ ] Safe RL framework setup
+    - [ ] Reward function design
+    - [ ] Safety constraints implementation
+- [ ] Train and evaluate FLA model
+    - [ ] Initial training phase
+    - [ ] Performance benchmarking
+    - [ ] Comparison with baselines
+- [ ] exps in real world
 ## Results
 ### Baselines
-- OpenVLA:
-    | Task | Drawer | Door | Screw | Insertion | Wiping |
-    |------|---------|------|-------|-----------|---------|
-    | Success | ![](videos/drawer_success.gif) | ![](videos/door_success.gif) | ![](videos/screw_success.gif) | ![](videos/insertion_success.gif) | ![](videos/wiping_success.gif) |
-    | Failure | ![](videos/drawer_fail.gif) | ![](videos/door_fail.gif) | ![](videos/screw_fail.gif) | ![](videos/insertion_fail.gif) | ![](videos/wiping_fail.gif) |
-    | Overall Performance | 50.2% | 80% | 60% | 70% | 85% |
-- RDT:
+- ### OpenVLA:
+- ### OpenVLA-Goal
+    | Task | Success | Failure | Success Rate |
+    |------|---------|---------|--------------|
+    | Pick & Place (Between Plate) | ![](videos/drawer_success.gif) | ![](videos/drawer_fail.gif) | 50.2% |
+    | Pick & Place (Cabinet) | ![](videos/door_success.gif) | ![](videos/door_fail.gif) | 80% |
+    | Pick & Place (Stove) | ![](videos/screw_success.gif) | ![](videos/screw_fail.gif) | 60% |
+    | Pick & Place (Drawer) | ![](videos/insertion_success.gif) | ![](videos/insertion_fail.gif) | 70% |
+    | PickAPlace (cookie_box) | ![](videos/wiping_success.gif) | ![](videos/wiping_fail.gif) | 85% |
+- ### OpenVLA-spatial
+    | Task | Success | Failure | Success Rate |
+    |------|---------|---------|--------------|
+    | Pick & Place (Between Plate) | ![](videos/drawer_success.gif) | ![](videos/drawer_fail.gif) | 50.2% |
+    | Pick & Place (Cabinet) | ![](videos/door_success.gif) | ![](videos/door_fail.gif) | 80% |
+    | Pick & Place (Stove) | ![](videos/screw_success.gif) | ![](videos/screw_fail.gif) | 60% |
+    | Pick & Place (Drawer) | ![](videos/insertion_success.gif) | ![](videos/insertion_fail.gif) | 70% |
+    | PickAPlace (cookie_box) | ![](videos/wiping_success.gif) | ![](videos/wiping_fail.gif) | 85% |
+- ### RDT:
     - *Results pending*
 
 ### Our Approach
@@ -49,6 +70,5 @@ Motivation: Fine-tuning by safe RL with force and torque perception to advance t
   volume={9},
   number={6},
   pages={5631-5638},
-  keywords={Task analysis;Safety;Impedance;Aerospace electronics;Trajectory;Conformance testing;Reinforcement learning;Robotics and automation;Compliance and impedance control;reinforce- ment learning (RL);robotics and automation in construction},
   doi={10.1109/LRA.2024.3396368}}
 ```
