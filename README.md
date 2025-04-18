@@ -1,2 +1,1 @@
-# FLA
-project website of FLA: force-language-action for robot safe manipulation in contact-rich tasks
+# FLA: force-language-action model for robot safe contact-rich manipulation
