@@ -24,7 +24,11 @@ Motivation: Fine-tuning by safe RL with force and torque perception to advance t
 ## Results
 ### Baselines
 - OpenVLA:
-    - *Results pending*
+    | Task | Drawer | Door | Screw | Insertion | Wiping |
+    |------|---------|------|-------|-----------|---------|
+    | Success | ![](videos/drawer_success.gif) | ![](videos/door_success.gif) | ![](videos/screw_success.gif) | ![](videos/insertion_success.gif) | ![](videos/wiping_success.gif) |
+    | Failure | ![](videos/drawer_fail.gif) | ![](videos/door_fail.gif) | ![](videos/screw_fail.gif) | ![](videos/insertion_fail.gif) | ![](videos/wiping_fail.gif) |
+    | Overall Performance | 50.2% | 80% | 60% | 70% | 85% |
 - RDT:
     - *Results pending*
 
