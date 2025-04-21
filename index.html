@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>FLA: a force-language-action model for robot safe contact-rich manipulation</title>
+  <meta name="description" content="FLA: force-language-action model for robot safe contact-rich manipulation">
+  <meta name="keywords" content="OpenVLA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="FLA: force-language-action model for robot safe contact-rich manipulation">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="OpenVLA: An Open-Source Vision-Language-Action Model">
+  <meta property="og:image" content="/images/frameworkFLA.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1939" />
+  <meta property="og:image:height" content="772" />
+  <meta property="og:url" content="https://" />
+  <meta property="og:description" content="FLA: force-language-action model for robot safe contact-rich manipulation" />
+  <meta name="twitter:title" content="FLA: force-language-action model for robot safe contact-rich manipulation" />
+  <meta name="twitter:description" content="FLA: force-language-action model for robot safe contact-rich manipulation" />
+  <meta name="twitter:image" content="images/frameworkFLA.png" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="/images/FLAicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">FLA:<br><span style="font-size:2.4rem;">a force-language-action model for robot safe contact-rich manipulation</span></h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://">Heng Zhang</a>1</sup>,
+              </span>              
+            </div>
+
+            
+            <div class="is-size-5 publication-authors">
+              <!-- <span class="author-block"><sup><font size="-0.4">*</sup>Equal contribution</font></span><br> -->
+              <span class="author-block"><sup>1</sup>iit,</span>          
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Model Link. -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/hf_icon.svg" />
+                    </span>
+                    <span>Models</span>
+                  </a>
+                </span>            
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser teaser-video">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted loop playsinline width="80%">
+          <source src="videos/overall.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+
+        <img src="images/frameworkFLA.jpg" />
+
+        <h2 class="subtitle has-text-centered">
+            We introduce FLA, a open-source force-language-action model (FLA), fine-tuned on xx robot episodes from the SOTA OpenVLA with force input and safety constraints. 
+            FLA sets a new state of the art for generalist robot manipulation policies especially for contact-rich tasks. The FLA checkpoints and PyTorch training pipeline are fully open-source
+            and models can be downloaded and fine-tuned from HuggingFace.
+        </h2>
+      </div>
+    </div>
+  </section>
+          
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">The FLA Model</h2>
+          <div class="content has-text-justified has-text-centered">
+            <img src="images/frameworkFLA.jpg" />
+            <p>
+              We train FLA by fine-tuning the OpenVLA <a href="https://arxiv.org/abs/2402.07865">spatial</a>. Our model consists of three key elements:
+              (1) a <strong>fused force input</strong>, consisting of , 
+              (2) a set of <strong>contact-rich tasks</strong> that 
+              (3) a <strong>RL-fine-tuned backbone</strong> that predicts tokenized output actions. These tokens get decoded into continuous output actions that
+              can be directly executed on the robot for contact-rich tasks.
+            </p>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <section class="section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3">Experiments</h2>
+
+                <h3 class="title is-4">Comparisons with State-of-the-Art Models</h2>
+                  <div class="content has-text-justified">
+                    <p>
+                      Here we show how FLA compares with other baseline methods in various evaluation tasks. (Videos are sped up by 2x.)
+                    </p>
+                  </div>
+                  <h3 class="title is-4">OpenVLA-goal</h3>
+                  <div class="content">
+                    <table>
+                      <thead>
+                      <tr>
+                        <th>Task</th>
+                        <th>Success</th>
+                        <th>Failure</th>
+                        <th>Success Rate</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>open the middle drawer of the cabinet</td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=1--success=True--task=open_the_middle_drawer_of_the_cabinet.mp4" type="video/mp4"></video></td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=2--success=False--task=open_the_middle_drawer_of_the_cabinet.mp4" type="video/mp4"></video></td>
+                        <td>37/50 (74.0%)</td>
+                      </tr>
+                      <tr>
+                        <td>put_the_bowl_on_the_stove</td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=51--success=True--task=put_the_bowl_on_the_stove.mp4 " type="video/mp4"></video></td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=90--success=False--task=put_the_bowl_on_the_stove.mp4" type="video/mp4"></video></td>
+                        <td>48/50 (96.0%)</td>
+                      </tr>
+                      <tr>
+                        <td>put_the_wine_bottle_on_top_of_the_cabinet</td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=101--success=True--task=put_the_wine_bottle_on_top_of_the_cabinet.mp4" type="video/mp4"></video></td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=109--success=False--task=put_the_wine_bottle_on_top_of_the_cabinet.mp4" type="video/mp4"></video></td>
+                        <td>41/50 (82.0%)</td>
+                      </tr>
+                      <tr>
+                        <td>open_the_top_drawer_and_put_the_bowl_inside</td>
+                        <!-- <td><video autoplay muted loop playsinline><source src="videos/" type="video/mp4"></video></td> -->
+                        <td><p>none success</p></td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=151--success=False--task=open_the_top_drawer_and_put_the_bowl_inside.mp4" type="video/mp4"></video></td>
+                        <td>0/50, 0</td>
+                      </tr>
+                      <tr>
+                        <td>put_the_bowl_on_top_of_the_cabinet</td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=201--success=True--task=put_the_bowl_on_top_of_the_cabinet.mp4" type="video/mp4"></video></td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=215--success=False--task=put_the_bowl_on_top_of_the_cabinet.mp4" type="video/mp4"></video></td>
+                        <td>44/50 (88%)</td>
+                      </tr>
+                      
+                      <tr>
+                        <td>push_the_plate_to_the_front_of_the_stove</td>
+                        <!-- <td><video autoplay muted loop playsinline><source src="videos/goal/" type="video/mp4"></video></td> -->
+                        <td><p>none success</p></td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=251--success=False--task=push_the_plate_to_the_front_of_the_stove.mp4" type="video/mp4"></video></td>
+                        <td>0/50, 0</td>
+                      </tr>
+                      <tr>
+                        <td>put_the_cream_cheese_in_the_bowl</td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=348--success=True--task=put_the_cream_cheese_in_the_bowl.mp4" type="video/mp4"></video></td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=301--success=False--task=put_the_cream_cheese_in_the_bowl.mp4" type="video/mp4"></video></td>
+                        <td>1/50 (2%)</td>
+                      </tr>
+                      <tr>
+                        <td>turn_on_the_stove</td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=351--success=True--task=turn_on_the_stove.mp4" type="video/mp4"></video></td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=369--success=False--task=turn_on_the_stove.mp4" type="video/mp4"></video></td>
+                        <td>45/50 (90%)</td>
+                      </tr>
+                      <tr>
+                        <td>put_the_bowl_on_the_plate</td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=401--success=True--task=put_the_bowl_on_the_plate.mp4" type="video/mp4"></video></td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=417--success=False--task=put_the_bowl_on_the_plate.mp4" type="video/mp4"></video></td>
+                        <td>47/50 (94%)</td> 
+                      </tr>
+                      <tr>
+                        <td>put_the_wine_bottle_on_the_rack</td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=451--success=True--task=put_the_wine_bottle_on_the_rack.mp4" type="video/mp4"></video></td>
+                        <td><video autoplay muted loop playsinline><source src="videos/goal/2025_04_18-14_36_38--episode=459--success=False--task=put_the_wine_bottle_on_the_rack.mp4" type="video/mp4"></video></td>
+                        <td>47/50 (94%)</td>
+                      </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <h3 class="title is-4">OpenVLA-spatial</h3>
+                  <div class="content">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Task</th>
+                          <th>Success</th>
+                          <th>Failure</th>
+                          <th>Success Rate</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>pick_up_the_black_bowl_between_the_plate_and_the_r</td>
+                          <td><video autoplay muted loop playsinline><source src="videos/spatial/2025_04_17-22_53_43--episode=1--success=True--task=pick_up_the_black_bowl_between_the_plate_and_the_r.mp4" type="video/mp4"></video></td>
+                          <td><video autoplay muted loop playsinline><source src="videos/spatial/2025_04_17-22_53_43--episode=100--success=False--task=pick_up_the_black_bowl_next_to_the_ramekin_and_pla.mp4" type="video/mp4"></video></td>
+                          <td>50.2%</td>
+                        </tr>
+                        <tr>
+                          <td>pick_up_the_black_bowl_on_the_wooden_cabinet_and_p</td>
+                          <td><video autoplay muted loop playsinline><source src="videos/spatial/2025_04_17-22_53_43--episode=451--success=True--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_p.mp4 " type="video/mp4"></video></td>
+                          <td><video autoplay muted loop playsinline><source src="videos/spatial/2025_04_17-22_53_43--episode=452--success=False--task=pick_up_the_black_bowl_on_the_wooden_cabinet_and_p.mp4" type="video/mp4"></video></td>
+                          <td>80%</td>
+                        </tr>
+                        <tr>
+                          <td>pick_up_the_black_bowl_on_the_stove_and_place_it_o</td>
+                          <td><video autoplay muted loop playsinline><source src="videos/spatial/2025_04_17-22_53_43--episode=355--success=True--task=pick_up_the_black_bowl_on_the_stove_and_place_it_o.mp4" type="video/mp4"></video></td>
+                          <td><video autoplay muted loop playsinline><source src="videos/spatial/2025_04_17-22_53_43--episode=353--success=False--task=pick_up_the_black_bowl_on_the_stove_and_place_it_o.mp4" type="video/mp4"></video></td>
+                          <td>60%</td>
+                        </tr>
+                        <tr>
+                          <td>pick_up_the_black_bowl_in_the_top_drawer_of_the_wo</td>
+                          <td><video autoplay muted loop playsinline><source src="videos/spatial/2025_04_17-22_53_43--episode=204--success=True--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4" type="video/mp4"></video></td>
+                          <td><video autoplay muted loop playsinline><source src="videos/spatial/2025_04_17-22_53_43--episode=201--success=False--task=pick_up_the_black_bowl_in_the_top_drawer_of_the_wo.mp4" type="video/mp4"></video></td>
+                          <td>60%</td>
+                        </tr>
+                        <tr>
+                          <td>pick_up_the_black_bowl_on_the_cookie_box_and_place</td>
+                          <td><video autoplay muted loop playsinline><source src="videos/spatial/2025_04_17-22_53_43--episode=174--success=True--task=pick_up_the_black_bowl_on_the_cookie_box_and_place.mp4" type="video/mp4"></video></td>
+                          <td><video autoplay muted loop playsinline><source src="videos/spatial/2025_04_17-22_53_43--episode=175--success=False--task=pick_up_the_black_bowl_on_the_cookie_box_and_place.mp4" type="video/mp4"></video></td>
+                          <td>60%</td>
+                      </tbody>
+                    </table>
+                  </div>
+                
+                
+              </div>
+            </div>
+          </div>
+      </section>
+
+
+      <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>
+            
+          </code></pre>
+        </div>
+      </section>
+
+
+      <footer class="footer">
+        <div class="container">
+         
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+                <p> Website borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> under a <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+                    International</a>
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+</body>
+
+</html>
