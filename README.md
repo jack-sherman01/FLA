@@ -33,11 +33,11 @@ Motivation: Fine-tuning by safe RL with force and torque perception to advance t
 - [ ] exps in real world
 ## Results
 ### Baselines
-- ### OpenVLA:
-- ### OpenVLA-Goal
+[OpenVLA](https://jack-sherman01.github.io/FLA/)
+<!-- - ### OpenVLA-Goal
     | Task | Success | Failure | Success Rate |
     |------|---------|---------|--------------|
-    | Pick & Place (Between Plate) | ![](videos/drawer_success.gif) | ![](videos/drawer_fail.gif) | 50.2% |
+    | Pick & Place (Between Plate) | ![](videos/) | ![](videos/drawer_fail.gif) | 50.2% |
     | Pick & Place (Cabinet) | ![](videos/door_success.gif) | ![](videos/door_fail.gif) | 80% |
     | Pick & Place (Stove) | ![](videos/screw_success.gif) | ![](videos/screw_fail.gif) | 60% |
     | Pick & Place (Drawer) | ![](videos/insertion_success.gif) | ![](videos/insertion_fail.gif) | 70% |
@@ -49,7 +49,7 @@ Motivation: Fine-tuning by safe RL with force and torque perception to advance t
     | Pick & Place (Cabinet) | ![](videos/door_success.gif) | ![](videos/door_fail.gif) | 80% |
     | Pick & Place (Stove) | ![](videos/screw_success.gif) | ![](videos/screw_fail.gif) | 60% |
     | Pick & Place (Drawer) | ![](videos/insertion_success.gif) | ![](videos/insertion_fail.gif) | 70% |
-    | PickAPlace (cookie_box) | ![](videos/wiping_success.gif) | ![](videos/wiping_fail.gif) | 85% |
+    | PickAPlace (cookie_box) | ![](videos/wiping_success.gif) | ![](videos/wiping_fail.gif) | 85% | -->
 - ### RDT:
     - *Results pending*
 
@@ -58,6 +58,7 @@ Motivation: Fine-tuning by safe RL with force and torque perception to advance t
 
 ## Open Questions
 - How to create a scale of contact-rich tasks environments?
+LIBERO can provide a procedural generation pipeline that could in principle generate an infinite number of manipulation tasks.
 - *Add more questions as they arise*
 
 ## Citation
