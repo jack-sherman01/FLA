@@ -15,10 +15,12 @@ Motivation: Fine-tuning by safe RL with force and torque perception to advance t
 - [ ] Deploy common VLA models locally
     - [x] [OpenVLA](#openvla)
     - [ ] RDT
+    - [ ] TinyVLA
     - [ ] Others...
 - [ ] Evaluate performance of each VLA model as baselines
     - [x] OpenVLA
     - [ ] RDT
+    - [ ] TinyVLA
 - [ ] Add F/T sensor integration for each setup
 - [ ] Create 5-10 contact-rich task environments
 - [ ] Design and implement FLA environment
